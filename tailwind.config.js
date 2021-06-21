@@ -19,7 +19,8 @@ module.exports = {
       },
 
       gridTemplateColumns: {
-        'footer': '64px 1fr 64px'
+        'footer': '64px 1fr 64px',
+        'tool': '64px 64px 64px 64px 64px 64px 64px 64px 64px 1fr'
       }
 
     },
