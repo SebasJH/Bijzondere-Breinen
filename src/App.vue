@@ -18,10 +18,10 @@
             </div>
         </form>    
         
-        <div class="lg:grid lg:grid-cols-2 gap-x-32 items-start mb-20">
+        <div class="lg:grid lg:grid-cols-2 gap-x-32 items-start mb-24">
             <div v-for="(item, index) in newArr" :key="index">
                 <div class="grid gap-3 grid-cols-footer grid-flow-col-dense text-white text-center mb-3">
-                    <template v-for="category in item" :key="category.text" >
+                    <template v-for="category in item" :key="category.text">
                     
                         <!-- Category -->
                         <div :class="`relative col-start-1 row-span-${category.size} bg-own${category.color}`">
@@ -74,6 +74,7 @@
             <div @click="downloadPDF" class="bg-blue-400 hover:bg-blue-500 cursor-pointer">
                 <img src="../public/img/download.svg" alt="Delete" draggable="false">
             </div>
+            <div class="sm:hidden bg-gray-400 lastBox"></div>
         </div>   
     </div>
 </div>
@@ -408,4 +409,8 @@ export default {
 </script>
 
 <style scoped>
+.lastBox {
+    content: "";
+    width: 1px;
+}
 </style>
