@@ -7,12 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "canvg": "^3.0.7",
     "core-js": "^3.6.5",
     "jspdf": "^2.3.1",
-    "svg2pdf.js": "^2.1.0",
-    "vue": "^3.0.0",
-    "vue3-click-away": "^1.1.0"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
