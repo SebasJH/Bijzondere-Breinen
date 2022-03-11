@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="mx-4 sm:mx-8">
 
-            <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen V9</h1>
+            <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen V10</h1>
             
             <form>
                 <div class="flex-col md:flex-row flex md:space-x-12 space-y-4 md:space-y-0 mb-10">
