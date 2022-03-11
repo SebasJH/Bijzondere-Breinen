@@ -33,7 +33,7 @@
                             </div>
 
                             <!-- Input -->
-                            <input type="image" onerror="this.onerror=null;this.src='test';" v-for="item in category.items" :key="item" :id="`${category.text}-${item.title}`" src="/" alt="" draggable="false" class="col-start-3 bg-gray-400 hover:bg-gray-500 cursor-pointer focus:ring-4 ring-black outline-none" @click="select($event)"/>
+                            <input type="image" onerror="this.style.visibility:'visible'" v-for="item in category.items" :key="item" :id="`${category.text}-${item.title}`" src="/" alt="" draggable="false" class="col-start-3 bg-gray-400 hover:bg-gray-500 cursor-pointer focus:ring-4 ring-black outline-none" @click="select($event)"/>
                         </template>
                     </div>
                 </div>
