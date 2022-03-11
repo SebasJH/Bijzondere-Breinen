@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="mx-4 sm:mx-8">
 
-            <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen V3</h1>
+            <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen V6</h1>
             
             <form>
                 <div class="flex-col md:flex-row flex md:space-x-12 space-y-4 md:space-y-0 mb-10">
@@ -33,7 +33,7 @@
                             </div>
 
                             <!-- Input -->
-                            <input type="image" v-for="item in category.items" :key="item" :id="`${category.text}-${item.title}`" src="/" alt="" draggable="false" class="col-start-3 bg-gray-400 hover:bg-gray-500 cursor-pointer focus:ring-4 ring-black outline-none" @click="select($event)"/>
+                            <input type="image" onerror="this.onerror=null;this.src='https://via.placeholder.com/1x1.png';" v-for="item in category.items" :key="item" :id="`${category.text}-${item.title}`" src="/" alt="" draggable="false" class="col-start-3 bg-gray-400 hover:bg-gray-500 cursor-pointer focus:ring-4 ring-black outline-none" @click="select($event)"/>
                         </template>
                     </div>
                 </div>
