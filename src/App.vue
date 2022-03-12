@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto">
+    <div v-if="password == '1234' || loggedIn" class="container mx-auto">
         <div class="mx-4 sm:mx-8">
 
             <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen</h1>
@@ -16,17 +16,17 @@
                     </div>
                 </div>
             </form>    
-            
+               
             <div class="lg:grid lg:grid-cols-2 gap-x-32 items-start mb-24">
                 <div v-for="(item, index) in newArr" :key="index">
                     <div class="grid gap-3 grid-cols-footer grid-flow-col-dense text-white text-center mb-3">
                         <template v-for="category in item" :key="category.text">
-                        
+                            
                             <!-- Category -->
                             <div :class="`relative col-start-1 row-span-${category.size} bg-own${category.color}`">
                                 <div class="absolute transform top-1/2 left-1/2 -rotate-90 -translate-x-2/4 -translate-y-2/4 font-bold whitespace-nowrap">{{ category.text }}</div>
                             </div>
-                                    
+                                        
                             <!-- Item -->
                             <div v-for="item in category.items" :key="item" :class=" `relative col-start-2 h-16 bg-own${category.color}`">
                                 <div class="absolute transform top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4">{{ item.title }}</div>
@@ -41,8 +41,16 @@
         </div>    
     </div>
 
+    <!-- Password check -->
+    <div v-else class="w-full h-screen">
+        <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center pt-64">
+            <label class="block font-semibold">Wachtwoord</label>
+            <input type="text" v-model="password" autofocus maxlength="4" class="bg-gray-200 focus:bg-gray-300 h-12 w-56 sm:w-60 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1 pl-2 text-center">
+        </div> 
+    </div>
+
     <!-- Toolbar -->
-    <div class="bg-gray-400 fixed bottom-0 inset-x-0">
+    <div v-if="password == '1234' || loggedIn" class="bg-gray-400 fixed bottom-0 inset-x-0">
         <div class="container mx-auto overflow-x-scroll sm:overflow-hidden my-2">
             <div class="grid grid-cols-tool gap-3 mx-4 sm:mx-8">
                 <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
@@ -89,6 +97,8 @@ export default {
             icon: '/',
             persNumber: '',
             date : new Date().toISOString().slice(0,10),
+            password: '',
+            loggedIn: document.cookie,
            
             categories: [
                 {
@@ -174,18 +184,19 @@ export default {
         }
     },
 
+    watch: {
+        // Check if password = 1234 and give cookie to stay logged in
+        password(newPassword, oldPassword) {
+            if (newPassword == '1234') {
+                document.cookie = "True";
+            }
+        }
+    },
+
     computed: {
         newArr() {
             return [this.categories.slice(0, this.categories.length/2), this.categories.slice(this.categories.length/2, this.categories.length)]
         },
-
-        // totalItems() {
-        //     let totalItems = 0;
-        //     for (let category of this.categories) {
-        //     totalItems = totalItems + category.items.length;
-        //     }
-        //     return totalItems;
-        // },
     },
 
     methods: { 
