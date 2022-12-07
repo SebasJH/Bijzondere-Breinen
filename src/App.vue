@@ -2,7 +2,7 @@
     <div v-if="password == '1234' || loggedIn" class="container mx-auto">
         <div class="mx-4 sm:mx-8">
 
-            <h1 class="text-4xl mb-8 mt-20 font-semibold">Bijzondere Breinen</h1>
+            <h1 class="text-4xl mb-8 mt-20 font-semibold">Streepjescode Tool</h1>
             
             <form>
                 <div class="flex-col md:flex-row flex md:space-x-12 space-y-4 md:space-y-0 mb-10">
@@ -53,25 +53,25 @@
     <div v-if="password == '1234' || loggedIn" class="bg-gray-400 fixed bottom-0 inset-x-0">
         <div class="container mx-auto overflow-x-scroll sm:overflow-hidden my-2">
             <div class="grid grid-cols-tool gap-3 mx-4 sm:mx-8">
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/1.png" alt="Score 1" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/2.png" alt="Score 2" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/3.png" alt="Score 3" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/up.png" alt="Score up" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/down.png" alt="Score down" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/diamond.png" alt="Score diamond" draggable="false" @click="changeIcon($event)">
                 </div>
-                <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer">
+                <div class="bg-gray-100 hover:bg-gray-300 cursor-pointer">
                     <img src="../public/img/hourglass.png" alt="Score hourglass" draggable="false" @click="changeIcon($event)">
                 </div>                                              
                 <!-- Download PDF and delete icon buttons -->
@@ -203,8 +203,6 @@ export default {
         // Selecting the input
         select(event){
             this.selected = event.currentTarget.id;
-            // TEST MOET LATER WEG
-            console.log(event.target.id);
         },
 
         // Changing value of icon
@@ -252,7 +250,7 @@ export default {
             // Title
             doc.setFont(undefined, 'bold');
             doc.setFontSize(22);
-            doc.text("Bijzondere Breinen", xMargin, 40,);
+            doc.text("Streepjescode Tool", xMargin, 40,);
 
             // Persoonsnummer
             doc.setFontSize(14);
@@ -310,7 +308,6 @@ export default {
                     
                     // Calculates width of item text-element
                     var itemTextWidth = doc.getTextWidth(item.title);
-                    console.log(itemTextWidth);
                     doc.text(item.title, xMargin + (pdfRow * itemSize) + itemSize/2 + 2, 250 + (itemTextWidth/2), null, 90); 
                     
                     doc.setFillColor('#e5e7eb');
@@ -323,7 +320,6 @@ export default {
                     if(src !== '/'){
                         var img = new Image()
                         img.src = src;
-                        console.log('src', src);
                         doc.addImage(img, 'PNG', xMargin + (pdfRow * itemSize), 343, itemSizeSpace, itemSizeSpace)
                     }
                     pdfRow++;
@@ -333,12 +329,12 @@ export default {
             // Footer
             doc.rect(0, 400, pdfWidth, 47, 'F');
    
-            // PDF Download + file name
+            // PDF download + file name
             if (this.persNumber) {
-                doc.save("Bijzondere Breinen - " + this.persNumber);
+                doc.save("Streepjescode Tool - " + this.persNumber);
             }
             else {
-                doc.save("Bijzondere Breinen");
+                doc.save("Streepjescode Tool");
             }
         },
     },
@@ -346,8 +342,8 @@ export default {
 </script>
 
 <style scoped>
-.lastBox {
-    content: "";
-    width: 1px;
-}
+    .lastBox {
+        content: "";
+        width: 1px;
+    }
 </style>
